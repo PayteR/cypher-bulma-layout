@@ -1,0 +1,24 @@
+{
+  "name": "cypher-bulma-layout",
+  "version": "0.0.1",
+  "description": "Bulma layout scss package to create a \"holy grail\" layout with Bulma",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PayteR/cypher-bulma-layout.git"
+  },
+  "keywords": [
+    "bulma",
+    "layout",
+    "scss"
+  ],
+  "author": "Peter \"PayteR\" Gašparík",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PayteR/cypher-bulma-layout/issues"
+  },
+  "homepage": "https://github.com/PayteR/cypher-bulma-layout#readme"
+}
