@@ -1,6 +1,6 @@
 {
   "name": "cypher-bulma-layout",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Bulma layout scss package to create a \"holy grail\" layout with Bulma",
   "main": "index.js",
   "repository": {
@@ -41,7 +41,7 @@
     "prod": "npm run production",
     "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "serve": "cross-env NODE_ENV=development webpack-dev-server --inline --open --config=webpack.server.js",
-    "prepublishOnly": "cross-env npm run prod && git push"
+    "prepublishOnly": "cross-env npm run prod && git push origin master"
   },
   "homepage": "https://github.com/PayteR/cypher-bulma-layout#readme"
 }
