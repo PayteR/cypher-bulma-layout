@@ -1,0 +1,70 @@
+/** Extended Bulma Variables **/
+$spacer: 1rem !default;
+$spacer-x: 1rem !default;
+$spacer-y: 1rem !default;
+
+$main-spacer-x: $spacer-x !default;
+$main-spacer-y: $spacer-y !default;
+
+$main-breakpoint: $tablet !default;
+
+$main-container-padding-top: $spacer-y !default;
+$main-container-padding-bottom: $spacer-y !default;
+
+$main-sidebar-left-width: 300px;
+
+.main {
+  flex-grow: 1000;
+}
+
+.main-container {
+  padding-top: $main-container-padding-top;
+  padding-bottom: $main-container-padding-bottom;
+  display: grid;
+  height: 100%;
+  grid-column-gap: $main-spacer-x; // it's done by sidebar margin for now, maybe remove later
+  grid-row-gap: $main-spacer-y;
+  justify-content: center;
+
+  grid-template-columns: 100%;
+  grid-template-areas:
+    "content"
+    "sidebar"
+  ;
+
+  @include until($desktop) {
+    padding-left: $spacer-x;
+    padding-right: $spacer-x;
+  }
+
+  @include from($main-breakpoint) {
+    grid-template-columns: [content] minmax(0, 1fr) [sidebar] auto;
+    grid-template-areas:
+      "content sidebar"
+    ;
+  }
+
+
+  //@include widescreen {
+  //  grid-template-columns: [sidebar] minmax(200px, $widescreen - 2 * $gap) [content] auto;
+  //  grid-template-rows: fit-content(1px) 1fr;
+  //}
+  //
+  //@include fullhd {
+  //  grid-template-columns: [sidebar] minmax(200px, $fullhd - 2 * $gap) [content] auto;
+  //  grid-template-rows: fit-content(1px) 1fr;
+  //}
+}
+
+.main-content {
+  grid-area: content;
+}
+
+.main-sidebar {
+  grid-area: sidebar;
+
+  @include from($main-breakpoint) {
+    width: $main-sidebar-left-width;
+    min-width: $main-sidebar-left-width;
+  }
+}

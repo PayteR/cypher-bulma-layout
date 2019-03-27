@@ -3,9 +3,6 @@
   "version": "0.0.1",
   "description": "Bulma layout scss package to create a \"holy grail\" layout with Bulma",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/PayteR/cypher-bulma-layout.git"
@@ -13,12 +10,32 @@
   "keywords": [
     "bulma",
     "layout",
-    "scss"
+    "scss",
+    "css",
+    "flexbox",
+    "responsive",
+    "framework",
+    "holy grail"
   ],
   "author": "Peter \"PayteR\" Gašparík",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/PayteR/cypher-bulma-layout/issues"
+  },
+  "devDependencies": {
+    "bulma_scss": "^0.7.2-rc.0",
+    "cross-env": "^5.2.0",
+    "laravel-mix": "^4.0.15",
+    "resolve-url-loader": "^2.3.2",
+    "sass-loader": "^7.1.0"
+  },
+  "scripts": {
+    "dev": "npm run development",
+    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "hot": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "prod": "npm run production",
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
   },
   "homepage": "https://github.com/PayteR/cypher-bulma-layout#readme"
 }
