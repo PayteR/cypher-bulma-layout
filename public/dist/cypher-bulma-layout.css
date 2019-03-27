@@ -1,0 +1,82 @@
+/*! bulma.io v0.7.2 | MIT License | github.com/jgthms/bulma */
+
+.body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/** Extended Bulma Variables **/
+
+.main {
+  flex-grow: 1000;
+}
+
+.main-container {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  display: grid;
+  height: 100%;
+  grid-column-gap: 1rem;
+  grid-row-gap: 1rem;
+  grid-template-rows: minmax(0, 1fr);
+  justify-content: center;
+  grid-template-columns: 100%;
+  grid-template-areas: "content" "sidebar-left" "sidebar-right";
+}
+
+@media screen and (max-width: 1087px) {
+  .main-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+.body.is-sidebar-left .main-container {
+  grid-template-rows: minmax(0, 1fr);
+}
+
+@media screen and (min-width: 769px) {
+  .body.is-sidebar-left .main-container {
+    grid-template-columns: [sidebar-left] 300px [content] minmax(0, 1fr);
+    grid-template-areas: "sidebar-left content" "sidebar-right content";
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .body.is-sidebar-right .main-container {
+    grid-template-columns: [content] minmax(0, 1fr) [sidebar-right] 300px;
+    grid-template-areas: "content sidebar-right" "content sidebar-left";
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .body.is-sidebar-left.body.is-sidebar-right .main-container {
+    grid-template-columns: [sidebar-left] 300px [content] minmax(0, 1fr) [sidebar-right] 300px;
+    grid-template-areas: "sidebar-left content sidebar-right";
+  }
+}
+
+.main-content {
+  grid-area: content;
+}
+
+.main-sidebar.is-left {
+  grid-area: sidebar-left;
+}
+
+.main-sidebar.is-right {
+  grid-area: sidebar-right;
+}
+
+.footer .menu {
+  list-style: none;
+  display: inline-block;
+}
+
+.footer .menu-item {
+  margin-left: 0.5rem;
+  display: inline-block;
+  font-size: 0.8rem;
+}
+
