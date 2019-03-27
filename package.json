@@ -30,7 +30,8 @@
     "http-server": "^0.11.1",
     "laravel-mix": "^4.0.15",
     "resolve-url-loader": "^2.3.2",
-    "sass-loader": "^7.1.0"
+    "sass-loader": "^7.1.0",
+    "webpack-dev-server": "^3.2.1"
   },
   "scripts": {
     "dev": "npm run development",
@@ -39,7 +40,7 @@
     "hot": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
     "prod": "npm run production",
     "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "serve": "node node_modules/http-server/bin/http-server -p 19005"
+    "serve": "cross-env NODE_ENV=development webpack-dev-server --inline --open --config=webpack.server.js"
   },
   "homepage": "https://github.com/PayteR/cypher-bulma-layout#readme"
 }
