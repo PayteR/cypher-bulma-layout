@@ -25,7 +25,7 @@ $main-sidebar-right-width: 300px;
   height: 100%;
   grid-column-gap: $main-spacer-x; // it's done by sidebar margin for now, maybe remove later
   grid-row-gap: $main-spacer-y;
-  grid-template-rows: minmax(0, 1fr);
+  grid-template-rows: auto;
   justify-content: center;
 
   grid-template-columns: 100%;
@@ -35,14 +35,17 @@ $main-sidebar-right-width: 300px;
     padding-right: $spacer-x;
   }
 
+
   grid-template-areas:
     "content"
-    "sidebar-left"
-    "sidebar-right"
   ;
 
-  .body.is-sidebar-left & {
-    grid-template-rows: minmax(0, 1fr);
+  .body.is-sidebar-left &,
+  .main.is-sidebar-left & {
+    grid-template-areas:
+      "content"
+      "sidebar-left"
+    ;
 
     @include from($main-breakpoint) {
       grid-template-columns: [sidebar-left] $main-sidebar-left-width [content] minmax(0, 1fr);
@@ -53,7 +56,13 @@ $main-sidebar-right-width: 300px;
     }
   }
 
-  .body.is-sidebar-right & {
+  .body.is-sidebar-right &,
+  .main.is-sidebar-right & {
+    grid-template-areas:
+      "content"
+      "sidebar-right"
+    ;
+
     @include from($main-breakpoint) {
       grid-template-columns: [content] minmax(0, 1fr) [sidebar-right] $main-sidebar-right-width;
       grid-template-areas:
@@ -62,7 +71,14 @@ $main-sidebar-right-width: 300px;
       ;
     }
   }
-  .body.is-sidebar-left.body.is-sidebar-right & {
+  .body.is-sidebar-left.body.is-sidebar-right &,
+  .main.is-sidebar-left.main.is-sidebar-right & {
+    grid-template-areas:
+      "content"
+      "sidebar-left"
+      "sidebar-right"
+    ;
+
     @include from($main-breakpoint) {
       grid-template-columns: [sidebar-left] $main-sidebar-left-width [content] minmax(0, 1fr) [sidebar-right] $main-sidebar-right-width;
       grid-template-areas:
@@ -72,13 +88,26 @@ $main-sidebar-right-width: 300px;
   }
 }
 
+/**
+  Negate width's
+ */
+.body.is-sidebar-left,
+.main.is-sidebar-left,
+.body.is-sidebar-right,
+.main.is-sidebar-right {
+  .has-width-fullwidth,
+  .has-width-wide {
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
 
 .main-content {
   grid-area: content;
 }
 
 .main-sidebar {
-
   &.is-left {
     grid-area: sidebar-left;
   }
@@ -87,3 +116,5 @@ $main-sidebar-right-width: 300px;
     grid-area: sidebar-right;
   }
 }
+
+

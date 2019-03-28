@@ -20,4 +20,4 @@ Run server, if you want to see example in public folder
 ```
 npm run serve
 ```
-And you should have opened url http://localhost:3000/ automatically in your default browser.
+And you should have opened url http://localhost:19003/ automatically in your default browser.

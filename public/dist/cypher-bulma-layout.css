@@ -1,5 +1,19 @@
 /*! bulma.io v0.7.2 | MIT License | github.com/jgthms/bulma */
 
+.has-width-fullwidth {
+  max-width: 100vw;
+  margin-left: calc( 50% - 50vw + 0.5rem);
+  margin-right: calc( 50% - 50vw + 0.5rem);
+}
+
+@media screen and (min-width: 1088px) {
+  .has-width-wide {
+    max-width: 100vw;
+    margin-left: -3rem;
+    margin-right: -3rem;
+  }
+}
+
 .body {
   display: flex;
   flex-direction: column;
@@ -19,10 +33,10 @@
   height: 100%;
   grid-column-gap: 1rem;
   grid-row-gap: 1rem;
-  grid-template-rows: minmax(0, 1fr);
+  grid-template-rows: auto;
   justify-content: center;
   grid-template-columns: 100%;
-  grid-template-areas: "content" "sidebar-left" "sidebar-right";
+  grid-template-areas: "content";
 }
 
 @media screen and (max-width: 1087px) {
@@ -32,29 +46,60 @@
   }
 }
 
-.body.is-sidebar-left .main-container {
-  grid-template-rows: minmax(0, 1fr);
+.body.is-sidebar-left .main-container,
+.main.is-sidebar-left .main-container {
+  grid-template-areas: "content" "sidebar-left";
 }
 
 @media screen and (min-width: 769px) {
-  .body.is-sidebar-left .main-container {
+  .body.is-sidebar-left .main-container,
+  .main.is-sidebar-left .main-container {
     grid-template-columns: [sidebar-left] 300px [content] minmax(0, 1fr);
     grid-template-areas: "sidebar-left content" "sidebar-right content";
   }
 }
 
+.body.is-sidebar-right .main-container,
+.main.is-sidebar-right .main-container {
+  grid-template-areas: "content" "sidebar-right";
+}
+
 @media screen and (min-width: 769px) {
-  .body.is-sidebar-right .main-container {
+  .body.is-sidebar-right .main-container,
+  .main.is-sidebar-right .main-container {
     grid-template-columns: [content] minmax(0, 1fr) [sidebar-right] 300px;
     grid-template-areas: "content sidebar-right" "content sidebar-left";
   }
 }
 
+.body.is-sidebar-left.body.is-sidebar-right .main-container,
+.main.is-sidebar-left.main.is-sidebar-right .main-container {
+  grid-template-areas: "content" "sidebar-left" "sidebar-right";
+}
+
 @media screen and (min-width: 769px) {
-  .body.is-sidebar-left.body.is-sidebar-right .main-container {
+  .body.is-sidebar-left.body.is-sidebar-right .main-container,
+  .main.is-sidebar-left.main.is-sidebar-right .main-container {
     grid-template-columns: [sidebar-left] 300px [content] minmax(0, 1fr) [sidebar-right] 300px;
     grid-template-areas: "sidebar-left content sidebar-right";
   }
+}
+
+/**
+  Negate width's
+ */
+
+.body.is-sidebar-left .has-width-fullwidth,
+.body.is-sidebar-left .has-width-wide,
+.main.is-sidebar-left .has-width-fullwidth,
+.main.is-sidebar-left .has-width-wide,
+.body.is-sidebar-right .has-width-fullwidth,
+.body.is-sidebar-right .has-width-wide,
+.main.is-sidebar-right .has-width-fullwidth,
+.main.is-sidebar-right .has-width-wide {
+  max-width: 100%;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .main-content {

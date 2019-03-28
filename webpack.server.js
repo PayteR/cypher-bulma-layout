@@ -5,6 +5,6 @@ module.exports = {
   devServer: {
     contentBase: './public/',
     compress: true,
-    port: 19005
+    port: 19001
   }
 };
