@@ -7,6 +7,7 @@ $main-spacer-x: $spacer-x !default;
 $main-spacer-y: $spacer-y !default;
 
 $main-breakpoint: $tablet !default;
+$main-min-height: 350px !default;
 
 $main-container-padding-top: $spacer-y !default;
 $main-container-padding-bottom: $spacer-y !default;
@@ -16,6 +17,10 @@ $main-sidebar-right-width: 300px;
 
 .main {
   flex-grow: 1000;
+
+  @include from($main-breakpoint) {
+    min-height: $main-min-height;
+  }
 }
 
 .main-container {
@@ -40,7 +45,7 @@ $main-sidebar-right-width: 300px;
     "content"
   ;
 
-  .body.is-sidebar-left &,
+  body.is-sidebar-left &,
   .main.is-sidebar-left & {
     grid-template-areas:
       "content"
@@ -51,12 +56,11 @@ $main-sidebar-right-width: 300px;
       grid-template-columns: [sidebar-left] $main-sidebar-left-width [content] minmax(0, 1fr);
       grid-template-areas:
         "sidebar-left content"
-        "sidebar-right content"
       ;
     }
   }
 
-  .body.is-sidebar-right &,
+  body.is-sidebar-right &,
   .main.is-sidebar-right & {
     grid-template-areas:
       "content"
@@ -67,12 +71,11 @@ $main-sidebar-right-width: 300px;
       grid-template-columns: [content] minmax(0, 1fr) [sidebar-right] $main-sidebar-right-width;
       grid-template-areas:
         "content sidebar-right"
-        "content sidebar-left"
       ;
     }
   }
-  .body.is-sidebar-left.body.is-sidebar-right &,
-  .main.is-sidebar-left.main.is-sidebar-right & {
+  body.is-sidebar-left.is-sidebar-right &,
+  .main.is-sidebar-left.is-sidebar-right & {
     grid-template-areas:
       "content"
       "sidebar-left"
@@ -91,9 +94,9 @@ $main-sidebar-right-width: 300px;
 /**
   Negate width's
  */
-.body.is-sidebar-left,
+body.is-sidebar-left,
 .main.is-sidebar-left,
-.body.is-sidebar-right,
+body.is-sidebar-right,
 .main.is-sidebar-right {
   .has-width-fullwidth,
   .has-width-wide {
