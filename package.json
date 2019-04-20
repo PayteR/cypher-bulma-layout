@@ -1,6 +1,6 @@
 {
   "name": "cypher-bulma-layout",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Bulma layout scss package to create a \"holy grail\" layout with Bulma",
   "main": "index.js",
   "repository": {

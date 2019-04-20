@@ -89,6 +89,17 @@ $main-sidebar-right-width: 300px;
       ;
     }
   }
+
+  .has-width-full,
+  .has-width-wide {
+    &:first-child {
+      margin-top: -$main-container-padding-top;
+    }
+    &:last-child {
+      margin-bottom: -$main-container-padding-bottom;
+    }
+  }
+
 }
 
 /**
@@ -98,11 +109,10 @@ body.is-sidebar-left,
 .main.is-sidebar-left,
 body.is-sidebar-right,
 .main.is-sidebar-right {
-  .has-width-fullwidth,
+  .has-width-full,
   .has-width-wide {
     max-width: 100%;
-    margin-left: 0;
-    margin-right: 0;
+    margin: 0;
   }
 }
 
