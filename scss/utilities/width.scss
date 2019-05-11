@@ -2,7 +2,13 @@ $width-wide-breakpoint: $desktop !default;
 $width-fullwidth-breakpoint: 0 !default;
 $has-width-wide-margin-left: -3rem !default;
 $has-width-wide-margin-right: -3rem !default;
+
 .has-width-full {
+  // temporary fix, because when scrollbar is present, then
+  // it;s not calculated to the vw value
+  padding-left: .5em;
+  padding-right: .5em;
+
   @include from($width-fullwidth-breakpoint) {
     min-width: 100vw;
     max-width: 100vw;

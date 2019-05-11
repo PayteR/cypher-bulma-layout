@@ -6,6 +6,8 @@ $spacer-y: 1rem !default;
 $main-spacer-x: $spacer-x !default;
 $main-spacer-y: $spacer-y !default;
 
+$main-mobile-padding: $spacer-x !default;
+
 $main-breakpoint: $tablet !default;
 $main-min-height: 350px !default;
 
@@ -36,8 +38,8 @@ $main-sidebar-right-width: 300px;
   grid-template-columns: 100%;
 
   @include until($desktop) {
-    padding-left: $spacer-x;
-    padding-right: $spacer-x;
+    padding-left: $main-mobile-padding;
+    padding-right: $main-mobile-padding;
   }
 
 
@@ -98,6 +100,13 @@ $main-sidebar-right-width: 300px;
     &:last-child {
       margin-bottom: -$main-container-padding-bottom;
     }
+  }
+
+  .has-width-full {
+    // temporary fix, because when scrollbar is present, then
+    // it's not calculated to the vw value
+    padding-left: calc(#{$main-mobile-padding} + 0.5em);
+    padding-right: calc(#{$main-mobile-padding} + 0.5em);
   }
 
 }
